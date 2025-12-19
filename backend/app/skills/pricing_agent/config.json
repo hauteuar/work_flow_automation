@@ -1,0 +1,35 @@
+{
+  "agent_name": "pricing_agent",
+  "version": "1.0.0",
+  "mcp_server": "oracle_mcp",
+  "timeout": 30,
+  "retry_attempts": 3,
+  "retry_backoff": "exponential",
+  "cache_enabled": true,
+  "cache_ttl": 300,
+  "capabilities": [
+    "oracle_query",
+    "price_calculation",
+    "validation",
+    "error_analysis"
+  ],
+  "supported_asset_classes": [
+    "EQUITY",
+    "BOND",
+    "MUTUALFUND",
+    "ETF",
+    "OPTION"
+  ],
+  "thresholds": {
+    "equity_circuit_breaker": 0.10,
+    "bond_yield_change": 0.005,
+    "mutual_fund_change": 0.05,
+    "etf_nav_premium": 0.02
+  },
+  "vendors": [
+    "BLOOMBERG",
+    "ICE",
+    "REUTERS",
+    "IDC"
+  ]
+}

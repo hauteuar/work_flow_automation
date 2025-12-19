@@ -1,0 +1,84 @@
+# Systemd Service Files for Production Deployment
+# Copy these to /etc/systemd/system/
+
+# ============================================
+# File: /etc/systemd/system/pricing-backend.service
+# ============================================
+[Unit]
+Description=Pricing Workflow Backend (FastAPI)
+After=network.target redis.service
+
+[Service]
+Type=simple
+User=pricingapp
+Group=pricingapp
+WorkingDirectory=/home/pricingapp/pricing-workflow-poc/backend
+Environment="PATH=/home/pricingapp/pricing-workflow-poc/backend/venv/bin"
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=/home/pricingapp/pricing-workflow-poc/backend/.env
+ExecStart=/home/pricingapp/pricing-workflow-poc/backend/venv/bin/python app/main.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/pricing-workflow/backend.log
+StandardError=append:/var/log/pricing-workflow/backend-error.log
+
+[Install]
+WantedBy=multi-user.target
+
+
+# ============================================
+# File: /etc/systemd/system/pricing-frontend.service
+# ============================================
+[Unit]
+Description=Pricing Workflow Frontend (Vite)
+After=network.target
+
+[Service]
+Type=simple
+User=pricingapp
+Group=pricingapp
+WorkingDirectory=/home/pricingapp/pricing-workflow-poc/frontend
+ExecStart=/usr/bin/npm run preview -- --port 5173 --host 0.0.0.0
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/pricing-workflow/frontend.log
+StandardError=append:/var/log/pricing-workflow/frontend-error.log
+
+[Install]
+WantedBy=multi-user.target
+
+
+# ============================================
+# Installation Instructions
+# ============================================
+
+# 1. Copy service files
+sudo cp pricing-backend.service /etc/systemd/system/
+sudo cp pricing-frontend.service /etc/systemd/system/
+
+# 2. Reload systemd
+sudo systemctl daemon-reload
+
+# 3. Enable services (start on boot)
+sudo systemctl enable pricing-backend
+sudo systemctl enable pricing-frontend
+
+# 4. Start services
+sudo systemctl start pricing-backend
+sudo systemctl start pricing-frontend
+
+# 5. Check status
+sudo systemctl status pricing-backend
+sudo systemctl status pricing-frontend
+
+# 6. View logs
+sudo journalctl -u pricing-backend -f
+sudo journalctl -u pricing-frontend -f
+
+# 7. Restart services
+sudo systemctl restart pricing-backend
+sudo systemctl restart pricing-frontend
+
+# 8. Stop services
+sudo systemctl stop pricing-backend
+sudo systemctl stop pricing-frontend

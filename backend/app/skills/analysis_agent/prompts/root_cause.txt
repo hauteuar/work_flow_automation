@@ -1,0 +1,182 @@
+You are performing a detailed root cause analysis for a production incident.
+
+## Incident Context
+{context}
+
+## Task
+{task}
+
+## Analysis Framework: 5 Whys + Fishbone
+
+### 5 Whys Method
+Ask "why" repeatedly to drill to root cause:
+1. Why did [symptom] occur?
+2. Why did that happen?
+3. Why did that happen?
+4. Why did that happen?
+5. What is the fundamental root cause?
+
+### Fishbone Categories
+Consider causes in each category:
+
+**People:**
+- Training gaps
+- Knowledge transfer issues
+- Staffing/resources
+- Communication breakdowns
+
+**Process:**
+- Missing procedures
+- Inadequate validation
+- Workflow inefficiencies
+- Handoff failures
+
+**Technology:**
+- Software bugs
+- Infrastructure limits
+- Configuration errors
+- Dependency failures
+
+**Data:**
+- Quality issues
+- Missing information
+- Format problems
+- Sync failures
+
+**Environment:**
+- Network issues
+- Vendor problems
+- External dependencies
+- Timing/concurrency
+
+## Evidence to Analyze
+{examples}
+
+## Investigation Checklist
+
+✓ What happened? (symptom)
+✓ When did it start? (timeline)
+✓ What changed before it? (trigger)
+✓ Is it still happening? (status)
+✓ Has it happened before? (recurrence)
+✓ How many affected? (scope)
+✓ What's the impact? (severity)
+
+## Root Cause Analysis Output
+
+```
+DETAILED ROOT CAUSE ANALYSIS
+
+Incident: [Title]
+Date/Time: [When it occurred]
+Duration: [How long]
+Status: [Resolved/Ongoing/Monitoring]
+
+SYMPTOM
+[What we observed - errors, failures, degradation]
+
+TIMELINE OF EVENTS
+[Minute-by-minute or hour-by-hour chronology]
+
+5 WHYS ANALYSIS
+1. Why did [symptom] occur?
+   → [Answer]
+
+2. Why did [previous answer] occur?
+   → [Answer]
+
+3. Why did [previous answer] occur?
+   → [Answer]
+
+4. Why did [previous answer] occur?
+   → [Answer]
+
+5. What is the fundamental root cause?
+   → [ROOT CAUSE]
+
+FISHBONE ANALYSIS
+
+People Factors:
+[Relevant factors or N/A]
+
+Process Factors:
+[Relevant factors or N/A]
+
+Technology Factors:
+[Relevant factors or N/A]
+
+Data Factors:
+[Relevant factors or N/A]
+
+Environment Factors:
+[Relevant factors or N/A]
+
+ROOT CAUSE DETERMINATION
+Primary Cause: [Main reason]
+Explanation: [Why this is the root cause]
+
+Contributing Factors:
+1. [Secondary factor that made it worse]
+2. [Another contributing factor]
+
+WHY IT WASN'T CAUGHT
+[Prevention gaps in monitoring, testing, or processes]
+
+IMPACT ASSESSMENT
+
+Severity: [P1/P2/P3/P4]
+Scope: [How many systems/securities/users affected]
+
+Immediate Impact:
+- [Quantified impact]
+
+Potential Impact (if not fixed):
+- [Worst case scenario]
+
+Financial Impact:
+- [If calculable]
+
+PREVENTION GOING FORWARD
+
+Detective Controls (Monitoring):
+[How to detect this earlier next time]
+
+Preventive Controls (Testing):
+[How to prevent this from happening]
+
+Process Improvements:
+[What process changes would help]
+
+RECOMMENDATIONS
+
+Priority 1 - Immediate (0-24 hours):
+Action: [What to do now]
+Owner: [Who]
+Time: [Estimate]
+Risk: [Low/Med/High]
+
+Priority 2 - Short-term (1-7 days):
+Action: [Fix to prevent recurrence]
+Owner: [Who]
+Time: [Estimate]
+Cost: [Resources needed]
+
+Priority 3 - Long-term (1-3 months):
+Action: [Structural improvement]
+Owner: [Who]
+Time: [Estimate]
+ROI: [Expected benefit]
+
+SUCCESS CRITERIA
+[How to measure if solutions worked]
+
+LESSONS LEARNED
+What went well: [Positives]
+What went wrong: [Negatives]
+What we learned: [Key insights]
+
+APPENDIX
+[Supporting evidence - logs, queries, screenshots]
+```
+
+Begin detailed root cause analysis:

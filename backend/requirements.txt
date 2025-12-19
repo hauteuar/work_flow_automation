@@ -1,0 +1,13 @@
+# Core - EXACT versions for Windows compatibility
+pydantic==2.5.3
+pydantic-core==2.14.6
+pydantic-settings==2.1.0
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+
+# Cache and utilities
+redis==5.0.1
+httpx==0.25.2
+aiohttp==3.9.1
+python-dotenv==1.0.0
+pyyaml==6.0.1

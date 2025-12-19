@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+volumes:
+  redis_data:
+
+# Note: For POC demo, you can run services locally without Docker
+# Just start Redis: brew install redis && redis-server
+# Then run backend and frontend separately as per README
